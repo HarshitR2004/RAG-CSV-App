@@ -20,7 +20,6 @@ A FastAPI-based application for managing and querying CSV files using Retrieval-
 - MongoDB integration for efficient data storage
 - Streamlit-based user interface
 - Comprehensive error handling
-- Swagger/OpenAPI documentation
 
 ## Architecture
 
