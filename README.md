@@ -40,8 +40,7 @@ The application consists of two main components:
 
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
-   cd rag-csv-app
+   git clone https://github.com/HarshitR2004/RAG-CSV-App
    ```
 
 2. Create and activate a virtual environment:
@@ -151,31 +150,7 @@ The application consists of two main components:
 | 500 | Internal Server Error | Database issues, processing failures | Check server logs and database connection |
 | 503 | Service Unavailable | Model server down, maintenance mode | Try again later or contact support |
 
-## API Documentation
-
-- **Swagger UI**: `http://localhost:8000/docs`
-- **ReDoc**: `http://localhost:8000/redoc`
-
-## Development
-
-### Project Structure
-```
-rag-csv-app/
-├── main.py           # FastAPI backend
-├── streamlit_app.py  # Streamlit frontend
-├── requirements.txt  # Dependencies
-├── .env             # Environment variables
-└── .vscode/         # VS Code settings
-```
 
 ### Models Used
 - **Sentence Transformer**: `all-MiniLM-L6-v2`
 - **Language Model**: `google/flan-t5-small`
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Commit changes
-4. Push to the branch
-5. Open a Pull Request
