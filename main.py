@@ -90,24 +90,18 @@ async def query_file(query_request: QueryRequest):
         if not file:
             raise HTTPException(status_code=404, detail="File not found")
         
-        # Generate query embedding
         query_embedding = model.encode(query_request.query)
         
-        # Convert embeddings to numpy arrays for similarity calculation
         file_embedding = np.array(file["embeddings"])
         query_embedding = query_embedding.reshape(1, -1)
         
-        # Calculate similarity score
         similarity_score = cosine_similarity(query_embedding, file_embedding.reshape(1, -1))[0][0]
         
-        # Get the content from the file
         content = file["content"]
         
-        # Prepare context for LLM
-        context = str(content)  # Convert content to string format
+        context = str(content)  
         prompt = f"Based on the following data:\n{context}\n\nQuestion: {query_request.query}\nAnswer:"
         
-        # Generate response using LLM
         inputs = tokenizer(prompt, return_tensors="pt", max_length=512, truncation=True)
         with torch.no_grad():
             outputs = llm_model.generate(
